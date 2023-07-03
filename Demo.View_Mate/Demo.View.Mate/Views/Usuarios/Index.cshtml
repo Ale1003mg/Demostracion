@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Demo.view_Mante.Dto.Dto.Dto_Usuarios>
+
+
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<h1 style="text-align:center">Usuarios</h1>
+
+<hr />
+
+<div class="d-grid gap-2">
+
+    <a asp-action="Create" class=" btn btn-primary">Nuevo Usuario</a>
+
+</div>
+<br />
+<div class="table-responsive">
+    <table class="table table-hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellidos
+                </th>
+                <th>
+                    Télefono
+                </th>
+                <th>
+                    Dirreción
+                </th>
+                <th>
+                    Contraseña
+                </th>
+                <th>
+                    Estado
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th hidden="hidden">
+                    @Html.DisplayNameFor(model => model.accion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.U_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.U_Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.U_Apellidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.U_Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.U_Direccion)
+                    </td>
+                    <td>
+                        **********
+                    </td>
+
+                    @{
+                        if (item.U_Estado == true)
+                        {
+                            <td>Activo</td>
+                        }
+                        else
+                        {
+                            <td>Desactivado</td>
+                        }
+                    }
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Correo)
+                    </td>
+                    <td hidden="hidden">
+                        @Html.DisplayFor(modelItem => item.accion)
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            @Html.ActionLink("Editar", "Edit", new { id=item.U_Id },new {@class="btn btn-primary "})
+                            @Html.ActionLink("Desactivar", "desactivar", new { id=item.U_Id },new {@class="btn btn-secondary"})
+                            @Html.ActionLink("Eliminar", "Delete", new {id=item.U_Id },new {@class="btn btn-danger "})
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

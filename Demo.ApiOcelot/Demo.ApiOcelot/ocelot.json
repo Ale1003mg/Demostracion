@@ -1,0 +1,36 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Usuarios/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5281"
+        }
+      ],
+      "SwaggerKey": "Usuarios",
+      "UpstreamPathTemplate": "/api/Usuarios/",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "Key": "Usuarios"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5258"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "Usuarios",
+      "Config": [
+        {
+          "Name": "Api de Usuarios",
+          "Version": "v1",
+          "Url": "http://localhost:5281/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+
+
+
+}
